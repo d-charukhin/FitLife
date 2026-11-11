@@ -2,7 +2,7 @@
 
 
 # 1. Знакомство
-user_name = input("Введи ваше имя: ")
+user_name = input("Введи ваше имя: ").title()
 user_age = int(input("Введите ваш возраст: "))
 
 
@@ -22,6 +22,6 @@ water_needed = round(water_ml / 1000, 2)
 
 
 # 4. Вывод красивого результата
-print(f"Привет!, {user_name.title()}")
+print(f"Привет!, {user_name}")
 print(f"Твой возраст: {user_age} г. ИМТ: {bmi}, норма воды: {water_needed}")
 print("Расчет окончен. Будьте здоровы!")
