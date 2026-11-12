@@ -1,14 +1,23 @@
 # Проект FitLife - MVP версия 1.0
 
+# Запись константов
+WATER_ML_PER_KG = 30
+MILLILITERS_PER_LITER = 1000
+
 
 # 1. Знакомство
 user_name = input("Введи ваше имя: ").title()
-user_age = int(input("Введите ваш возраст: "))
+try:
+    user_age = int(input("Введите ваш возраст в полных годах: "))
+except ValueError:
+    print("Ошибка: введите возраст целым числом")
 
 
 # 2. Сбор данных
-user_weight = float(input("Введите ваш вес(кг): "))
-user_height = float(input("Введите ваш рост(м), например 1.78: "))
+user_weight = float(input("Введите ваш вес(кг): ").replace(",", "."))
+user_height = float(
+    input("Введите ваш рост(м), например 1.78: ").replace(",", ".")
+)
 
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
@@ -17,8 +26,8 @@ bmi = round(user_weight / (user_height ** 2), 1)
 
 
 # Подсчет воды: вес * 30 мл
-water_ml = user_weight * 30
-water_needed = round(water_ml / 1000, 2)
+water_ml = user_weight * WATER_ML_PER_KG
+water_needed = round(water_ml / MILLILITERS_PER_LITER, 2)
 
 
 # 4. Вывод красивого результата
